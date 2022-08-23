@@ -71,7 +71,7 @@ class _SigninPageState extends State<SigninPage> {
                                   Navigator.pushNamed(context, '/login');
                                 },
                                 child: const Text(
-                                  "LogIN",
+                                  "Login",
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,

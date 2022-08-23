@@ -109,6 +109,9 @@ class _LoginPageState extends State<LoginPage> {
                   height: 30,
                 ),
                 TextFormField(
+                  style: const TextStyle(
+                    color: Colors.amber
+                  ),
                   cursorColor: Colors.amber,
                   controller: passwordController,
                   obscuringCharacter: "*",
