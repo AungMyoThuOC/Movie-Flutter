@@ -60,7 +60,9 @@ class _MoviePageState extends State<MoviePage> {
         title: const Text("Movie App"),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/search');
+              },
               icon: const Icon(Icons.search))
         ],
       ),
@@ -81,13 +83,13 @@ class _MoviePageState extends State<MoviePage> {
                           itemBuilder: (BuildContext context, int index) {
                             Movie m = topRatedMovies![index];
                             return InkWell(
-                              onTap: (){
-                                 Navigator.push(context,
-                                   MaterialPageRoute(
-                                    builder: 
-                                    (context) => DetailPage(movie: m,)
-                                  )
-                                );
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailPage(
+                                              movie: m,
+                                            )));
                               },
                               child: SizedBox(
                                 width: 125,
@@ -95,23 +97,23 @@ class _MoviePageState extends State<MoviePage> {
                                 child: Card(
                                   child: Column(children: [
                                     SizedBox(
-                                      height: 180,
-                                      child: Image(
-                                        image: CachedNetworkImageProvider(
-                                           API.imageURL + m.posterPath
-                                        ),
-                                      )
-                                    ),
+                                        height: 180,
+                                        child: Image(
+                                          image: CachedNetworkImageProvider(
+                                              API.imageURL + m.posterPath),
+                                        )),
                                     const SizedBox(
                                       height: 4,
                                     ),
-                                    Text(m.title)
+                                    Text(
+                                      m.title,
+                                      maxLines: 2,
+                                    )
                                   ]),
                                 ),
                               ),
                             );
-                          }
-                        ),
+                          }),
                     ),
                     const SizedBox(
                       height: 20,
@@ -126,13 +128,13 @@ class _MoviePageState extends State<MoviePage> {
                           itemBuilder: (BuildContext context, int index) {
                             Movie m = upcomingMovies![index];
                             return InkWell(
-                              onTap: (){
-                                 Navigator.push(context,
-                                   MaterialPageRoute(
-                                    builder: 
-                                    (context) => DetailPage(movie: m,)
-                                  )
-                                );
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailPage(
+                                              movie: m,
+                                            )));
                               },
                               child: SizedBox(
                                 width: 125,
@@ -142,20 +144,23 @@ class _MoviePageState extends State<MoviePage> {
                                     SizedBox(
                                       height: 180,
                                       child: Image(
-                                        image: CachedNetworkImageProvider(
-                                          API.imageURL + m.posterPath)),
+                                          image: CachedNetworkImageProvider(
+                                              API.imageURL + m.posterPath)),
                                     ),
                                     const SizedBox(
                                       height: 4,
                                     ),
-                                    Text(m.title)
+                                    Text(
+                                      m.title,
+                                      maxLines: 2,
+                                    )
                                   ]),
                                 ),
                               ),
                             );
                           }),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     const Text("NowPlaying"),
@@ -168,13 +173,13 @@ class _MoviePageState extends State<MoviePage> {
                           itemBuilder: (BuildContext context, int index) {
                             Movie m = nowPlayingMovies![index];
                             return InkWell(
-                              onTap: (){
-                                 Navigator.push(context,
-                                   MaterialPageRoute(
-                                    builder: 
-                                    (context) => DetailPage(movie: m,)
-                                  )
-                                );
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailPage(
+                                              movie: m,
+                                            )));
                               },
                               child: SizedBox(
                                 width: 125,
@@ -184,13 +189,16 @@ class _MoviePageState extends State<MoviePage> {
                                     SizedBox(
                                       height: 180,
                                       child: Image(
-                                        image: CachedNetworkImageProvider(
-                                          API.imageURL + m.posterPath)),
+                                          image: CachedNetworkImageProvider(
+                                              API.imageURL + m.posterPath)),
                                     ),
                                     const SizedBox(
                                       height: 4,
                                     ),
-                                    Text(m.title)
+                                    Text(
+                                      m.title,
+                                      maxLines: 2,
+                                    )
                                   ]),
                                 ),
                               ),

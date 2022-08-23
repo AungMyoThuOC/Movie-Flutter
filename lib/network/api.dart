@@ -1,4 +1,4 @@
-import 'dart:convert';
+// import 'dart:convert';
 
 import 'package:top_rate_movie/models/cast.dart';
 import 'package:top_rate_movie/models/resp_cast.dart';
@@ -39,8 +39,23 @@ class API {
     return getMovieList(category);
   }
 
+// https://api.themoviedb.org/3/search/movie?query=$str&api_key=050c28541f900007285c3020069bfd62
+  // String _Url = "https://api.themoviedb.org/3/search/movie?query=";
+
   Future<List<Movie>> getSearch(String name) async {
-    return getSearch("/search/movie/$name");
+    // return getSearch("/search/movie/$name");
+
+    var url = Uri.parse(
+        'https://api.themoviedb.org/3/search/movie?query=$name&api_key=0264b0cdba895000a1d2f5382fe17e4f');
+    final resp = await http.get(url);
+    print(resp.statusCode);
+    if (resp.statusCode == 200) {
+      var movieresult = ResPopular.fromRawJson(resp.body);
+      return movieresult.results;
+    } else {
+      throw Exception('Unable to Assest API');
+      // print(resp.statusCode);
+    }
   }
 
   Future<List<Cast>> getCast(int movieID) async {
@@ -49,7 +64,7 @@ class API {
     final response = await http.get(
       Uri.parse("$_baseURL$url?api_key=$_apiKey"),
     );
-
+    print(response.statusCode);
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response, then parse the JSON.
       var resp = RespCast.fromRawJson(response.body);
