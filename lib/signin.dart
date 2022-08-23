@@ -16,7 +16,7 @@ class _SigninPageState extends State<SigninPage> {
         decoration: const BoxDecoration(
             image: DecorationImage(
           image: AssetImage('images/movi.jpg'),
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.cover,
         )
         ),
         child: Padding(
